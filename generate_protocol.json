@@ -1,0 +1,39 @@
+{
+  "id": "generate_protocol",
+  "name": "generate_protocol",
+  "mcp_name": "opentrons",
+  "description": "Generate a complete Opentrons OT-2 Python protocol script from a high-level task description. Supports serial_dilution, pcr_setup, and rt_normalization task types.",
+  "inputs": [
+    {
+      "name": "task_type",
+      "type": "string",
+      "description": "Protocol category. Must be one of: serial_dilution, pcr_setup, rt_normalization.",
+      "required": true
+    },
+    {
+      "name": "parameters_json",
+      "type": "string",
+      "description": "JSON string of task-specific parameters (volumes, plate counts, reagent names, etc.). See SKILL.md for per-task schemas.",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "result",
+      "type": "string",
+      "description": "JSON string with key 'script' (the generated Python code) or 'error' on failure."
+    }
+  ],
+  "examples": [
+    {
+      "input": {
+        "task_type": "serial_dilution",
+        "parameters_json": "{\"num_dilutions\": 8, \"dilution_factor\": 2, \"initial_volume\": 100}"
+      },
+      "output": "{\"script\": \"from opentrons import protocol_api\\n...\"}"
+    }
+  ],
+  "execution_details": {
+    "seq_params": []
+  }
+}

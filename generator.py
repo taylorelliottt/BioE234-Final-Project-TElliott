@@ -1,5 +1,5 @@
 """
-OT-2 protocol generator (Taylor Elliott).
+OT-2 protocol generator.
 
 Takes a high-level parameters dict and returns a complete, syntactically
 valid Opentrons API v2 Python script as a string.
